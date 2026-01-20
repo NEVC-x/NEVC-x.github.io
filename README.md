@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# 📚 随文识字学习应用
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+一个现代化的中文学习应用，帮助学习者在课文中轻松识别和掌握生字。
 
-## Available Scripts
+## ✨ 功能特色
 
-In the project directory, you can run:
+- 🎨 **主题切换** - 支持白天/夜间模式
+- 📊 **学习进度** - 追踪学习进度，标记已掌握的汉字
+- 🎯 **互动学习** - 点击生字查看拼音、释义和笔顺动画
+- 📱 **响应式设计** - 完美适配桌面端和移动端
+- ✨ **炫酷效果** - 丰富的动画和交互反馈
+- 🔊 **发音功能** - 自动播放汉字读音
 
-### `npm start`
+## 🚀 快速开始
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 本地运行
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+# 安装依赖
+npm install
 
-### `npm test`
+# 启动开发服务器
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+访问：http://localhost:3000
 
-### `npm run build`
+### 构建生产版本
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+# 构建项目
+npm run build
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# 使用静态服务器运行
+npm install -g serve
+serve -s build
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🌐 在线部署
 
-### `npm run eject`
+### Netlify 部署（推荐）
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Fork 此项目到你的 GitHub
+2. 访问 [netlify.com](https://netlify.com)
+3. 点击 "New site from Git"
+4. 选择你的 GitHub 仓库
+5. 设置：
+   - Build command: `npm run build`
+   - Publish directory: `build`
+6. 点击 "Deploy site"
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 其他部署选项
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- [Vercel](https://vercel.com)
+- [GitHub Pages](https://pages.github.com)
+- 任何支持静态网站的托管服务
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📱 使用说明
 
-## Learn More
+1. **输入课文** - 在文本框中输入要学习的中文课文
+2. **点击生字** - 课文中的生字会高亮显示，点击查看详情
+3. **查看信息** - 查看拼音、释义、笔顺动画和例词
+4. **标记进度** - 双击生字标记为已掌握
+5. **切换主题** - 使用右上角按钮切换主题
+6. **快速搜索** - 使用搜索框快速查询汉字
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🛠️ 技术栈
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Frontend**: React 19, Styled JSX
+- **Animations**: CSS Animations, Hanzi Writer
+- **Deployment**: Netlify/Vercel
+- **Speech**: Web Speech API
 
-### Code Splitting
+## 🎨 界面预览
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![随文识字界面](public/screenshot.png)
 
-### Analyzing the Bundle Size
+## 🤝 贡献
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+欢迎提交 Issue 和 Pull Request！
 
-### Making a Progressive Web App
+## 📄 许可证
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+MIT License
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**享受学习中文的乐趣！** 🎉
