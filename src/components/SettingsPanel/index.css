@@ -1,0 +1,182 @@
+.settings-panel {
+  @apply max-w-2xl mx-auto;
+}
+
+.panel-content {
+  @apply space-y-6;
+}
+
+.panel-header {
+  @apply mb-6 pb-4 border-b border-gray-100;
+}
+
+.dark .panel-header {
+  @apply border-b-gray-700;
+}
+
+.panel-title {
+  @apply flex items-center gap-3;
+}
+
+.panel-title h2 {
+  @apply text-xl font-bold text-gray-900;
+}
+
+.dark .panel-title h2 {
+  @apply text-gray-100;
+}
+
+.settings-section {
+  @apply panel;
+}
+
+.section-title {
+  @apply text-base font-bold text-gray-800 mb-4 flex items-center gap-2;
+}
+
+.dark .section-title {
+  @apply text-gray-200;
+}
+
+.setting-group {
+  @apply mb-4 last:mb-0;
+}
+
+.setting-group:last-child {
+  @apply mb-0;
+}
+
+.setting-label {
+  @apply flex items-center gap-2 text-sm font-medium text-gray-700 mb-3 block;
+}
+
+.dark .setting-label {
+  @apply text-gray-300;
+}
+
+.option-group {
+  @apply flex gap-2 flex-wrap;
+}
+
+.option-btn {
+  @apply px-4 py-2 bg-gray-100 text-gray-700 rounded-lg font-medium transition-all hover:bg-gray-200;
+}
+
+.dark .option-btn {
+  @apply bg-gray-700 text-gray-300 hover:bg-gray-600;
+}
+
+.option-btn.active {
+  @apply bg-primary text-white;
+}
+
+.option-btn span {
+  @apply ml-1;
+}
+
+.toggle-group {
+  @apply flex justify-between items-center py-1;
+}
+
+.toggle-btn {
+  @apply w-12 h-6 bg-gray-300 rounded-full relative transition-colors duration-300;
+}
+
+.dark .toggle-btn {
+  @apply bg-gray-600;
+}
+
+.toggle-btn.active {
+  @apply bg-primary;
+}
+
+.toggle-slider {
+  @apply absolute top-1 left-1 w-4 h-4 bg-white rounded-full shadow transition-transform duration-300;
+}
+
+.toggle-btn.active .toggle-slider {
+  @apply transform translate-x-6;
+}
+
+.action-btn {
+  @apply w-full flex items-center justify-center gap-2 px-4 py-3 bg-gray-100 text-gray-700 rounded-lg font-medium transition-all hover:bg-gray-200 mb-3 last:mb-0;
+}
+
+.dark .action-btn {
+  @apply bg-gray-700 text-gray-300 hover:bg-gray-600;
+}
+
+.action-btn-export {
+  @apply bg-primary/10 text-primary hover:bg-primary/20;
+}
+
+.dark .action-btn-export {
+  @apply bg-primary/20 text-primary-light hover:bg-primary/30;
+}
+
+.action-btn-print {
+  @apply bg-blue-50 text-blue-600 hover:bg-blue-100;
+}
+
+.dark .action-btn-print {
+  @apply bg-blue-900/20 text-blue-400 hover:bg-blue-900/30;
+}
+
+.action-btn-reset {
+  @apply bg-orange-50 text-orange-600 hover:bg-orange-100;
+}
+
+.dark .action-btn-reset {
+  @apply bg-orange-900/20 text-orange-400 hover:bg-orange-900/30;
+}
+
+.action-btn-clear {
+  @apply bg-red-50 text-red-600 hover:bg-red-100;
+}
+
+.dark .action-btn-clear {
+  @apply bg-red-900/20 text-red-400 hover:bg-red-900/30;
+}
+
+.info-section {
+  @apply bg-gray-50;
+}
+
+.dark .info-section {
+  @apply bg-gray-700;
+}
+
+.info-content {
+  @apply flex items-start gap-3;
+}
+
+.info-content h4 {
+  @apply text-sm font-bold text-gray-900 mb-1;
+}
+
+.dark .info-content h4 {
+  @apply text-gray-100;
+}
+
+.info-content p {
+  @apply text-sm text-gray-600;
+}
+
+.dark .info-content p {
+  @apply text-gray-400;
+}
+
+/* 响应式 */
+@media (max-width: 640px) {
+  .settings-panel {
+    @apply mx-2;
+  }
+
+  .option-group {
+    @apply gap-1.5;
+  }
+
+  .option-btn {
+    @apply flex-1 px-3 py-2 text-sm;
+  }
+}

@@ -1,0 +1,154 @@
+.text-display-container {
+  @apply bg-white rounded-2xl p-6 shadow-lg;
+}
+
+.dark .text-display-container {
+  @apply bg-gray-800;
+}
+
+.text-display-header {
+  @apply flex items-center justify-between mb-6 gap-4 flex-wrap;
+}
+
+.text-display-title {
+  @apply text-xl font-bold text-gray-900;
+}
+
+.dark .text-display-title {
+  @apply text-gray-100;
+}
+
+.search-box {
+  @apply flex items-center gap-2 bg-gray-100 rounded-lg px-3 py-2 flex-1 max-w-sm;
+}
+
+.dark .search-box {
+  @apply bg-gray-700;
+}
+
+.search-icon {
+  @apply text-gray-500;
+}
+
+.dark .search-icon {
+  @apply text-gray-400;
+}
+
+.search-input {
+  @apply flex-1 bg-transparent border-none outline-none text-sm;
+}
+
+.search-clear {
+  @apply text-gray-400 hover:text-gray-600 transition-colors;
+}
+
+.dark .search-clear {
+  @apply hover:text-gray-200;
+}
+
+.edit-button {
+  @apply px-3 py-1.5 text-sm bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-colors;
+}
+
+.dark .edit-button {
+  @apply bg-primary/20 text-primary-light;
+}
+
+.edit-mode {
+  @apply space-y-4;
+}
+
+.edit-textarea {
+  @apply w-full p-4 border-2 border-gray-200 rounded-xl text-lg leading-relaxed resize-y min-h-[200px] focus:outline-none focus:border-primary transition-colors;
+}
+
+.dark .edit-textarea {
+  @apply bg-gray-900 border-gray-700 text-gray-100 focus:border-primary;
+}
+
+.edit-actions {
+  @apply flex justify-end gap-3;
+}
+
+.btn-cancel {
+  @apply px-5 py-2 bg-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-300 transition-colors;
+}
+
+.dark .btn-cancel {
+  @apply bg-gray-700 text-gray-200 hover:bg-gray-600;
+}
+
+.btn-save {
+  @apply px-5 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary-hover transition-colors;
+}
+
+.segment-controls {
+  @apply flex items-center justify-center gap-4 mb-6 p-3 bg-gray-50 rounded-xl;
+}
+
+.dark .segment-controls {
+  @apply bg-gray-700;
+}
+
+.segment-nav-btn {
+  @apply w-10 h-10 flex items-center justify-center rounded-lg bg-white text-gray-700 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-all;
+}
+
+.dark .segment-nav-btn {
+  @apply bg-gray-800 text-gray-200 hover:bg-gray-700;
+}
+
+.segment-indicator {
+  @apply text-sm font-medium text-gray-600 min-w-[60px] text-center;
+}
+
+.dark .segment-indicator {
+  @apply text-gray-300;
+}
+
+.text-display-area {
+  @apply text-display min-h-[250px] leading-loose tracking-wide;
+}
+
+.current-segment-stats {
+  @apply mt-6 p-4 bg-gray-50 rounded-xl;
+}
+
+.dark .current-segment-stats {
+  @apply bg-gray-700;
+}
+
+.current-segment-stats span:first-child {
+  @apply text-sm font-medium text-gray-600 block mb-3;
+}
+
+.dark .current-segment-stats span:first-child {
+  @apply text-gray-300;
+}
+
+.mini-char-grid {
+  @apply flex flex-wrap gap-2;
+}
+
+.mini-char-item {
+  @apply w-8 h-8 flex items-center justify-center text-sm bg-white border border-gray-200 rounded-md cursor-pointer hover:border-primary hover:text-primary transition-all;
+}
+
+.dark .mini-char-item {
+  @apply bg-gray-800 border-gray-600 text-gray-200 hover:border-primary hover:text-primary;
+}
+
+/* 响应式 */
+@media (max-width: 640px) {
+  .text-display-header {
+    @apply flex-col items-start;
+  }
+
+  .search-box {
+    @apply w-full max-w-none;
+  }
+
+  .text-display-area {
+    @apply text-base;
+  }
+}

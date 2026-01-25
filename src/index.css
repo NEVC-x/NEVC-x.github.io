@@ -1,13 +1,300 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 基础样式 */
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html,
+  body,
+  #root {
+    @apply h-full;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-gray-900;
+
+    /* 字体加载 */
+    font-family: 'KaiTi', 'STKaiti', '楷体', 'PingFang SC', 'Microsoft YaHei', '微软雅黑', sans-serif;
+  }
+
+  /* 护眼模式 */
+  body.eye-care-mode {
+    @apply bg-eyeCare;
+  }
+
+  /* 暗黑模式 */
+  .dark body {
+    @apply bg-gray-900 text-gray-100;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* 生字高亮样式 */
+@layer components {
+  .character-highlight {
+    @apply text-character cursor-pointer transition-all duration-200;
+    padding: 2px 4px;
+    border-radius: 4px;
+    display: inline-block;
+  }
+
+  .character-highlight:hover {
+    @apply bg-character-light;
+    transform: scale(1.1);
+  }
+
+  .dark .character-highlight:hover {
+    @apply bg-red-900/30;
+  }
+
+  /* 生字网格项 */
+  .character-grid-item {
+    @apply aspect-square flex items-center justify-center text-2xl bg-gray-100 rounded-lg cursor-pointer transition-all duration-200 relative;
+  }
+
+  .character-grid-item.learned {
+    @apply bg-green-100 border-2 border-success;
+  }
+
+  .character-grid-item:hover {
+    @apply bg-primary text-white -translate-y-0.5;
+  }
+
+  .character-grid-item.learned:hover {
+    @apply bg-success;
+  }
+
+  .dark .character-grid-item {
+    @apply bg-gray-800 text-gray-200;
+  }
+
+  .dark .character-grid-item.learned {
+    @apply bg-green-900/50 border-green-500;
+  }
+
+  .dark .character-grid-item:hover {
+    @apply bg-primary;
+  }
+
+  /* 弹窗遮罩 */
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4;
+  }
+
+  /* 汉字详情卡片 */
+  .character-card {
+    @apply bg-white rounded-2xl p-6 max-w-lg w-full shadow-xl max-h-[90vh] overflow-y-auto animate-scale-in;
+  }
+
+  .dark .character-card {
+    @apply bg-gray-800 shadow-2xl;
+  }
+
+  /* 按钮样式 */
+  .btn-primary {
+    @apply px-5 py-2.5 bg-primary text-white rounded-lg font-medium transition-all duration-200 hover:bg-primary-hover active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply px-5 py-2.5 bg-gray-200 text-gray-700 rounded-lg font-medium transition-all duration-200 hover:bg-gray-300 active:scale-95;
+  }
+
+  .dark .btn-secondary {
+    @apply bg-gray-700 text-gray-200 hover:bg-gray-600;
+  }
+
+  .btn-icon {
+    @apply w-9 h-9 rounded-full border border-gray-200 bg-white text-gray-600 flex items-center justify-center transition-all duration-200 hover:bg-gray-100 active:scale-95;
+  }
+
+  .dark .btn-icon {
+    @apply border-gray-700 bg-gray-800 text-gray-400 hover:bg-gray-700;
+  }
+
+  /* 进度条 */
+  .progress-bar {
+    @apply h-2.5 bg-gray-200 rounded-full overflow-hidden;
+  }
+
+  .dark .progress-bar {
+    @apply bg-gray-700;
+  }
+
+  .progress-fill {
+    @apply h-full bg-success transition-all duration-500 ease-out;
+  }
+
+  /* 设置面板项 */
+  .setting-item {
+    @apply flex justify-between items-center py-3 border-b border-gray-100 last:border-b-0;
+  }
+
+  .dark .setting-item {
+    @apply border-b-gray-700;
+  }
+
+  /* 导航按钮 */
+  .nav-btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:bg-gray-100;
+  }
+
+  .nav-btn.active {
+    @apply bg-primary text-white;
+  }
+
+  .dark .nav-btn {
+    @apply hover:bg-gray-800;
+  }
+
+  /* 搜索输入框 */
+  .search-input {
+    @apply flex-1 px-4 py-2.5 border-2 border-gray-200 rounded-lg text-base focus:outline-none focus:border-primary transition-colors;
+  }
+
+  .dark .search-input {
+    @apply bg-gray-900 border-gray-700 text-gray-100 focus:border-primary;
+  }
+
+  /* 文本显示区 */
+  .text-display {
+    @apply bg-gray-50 rounded-xl p-8 leading-relaxed min-h-[200px];
+  }
+
+  .dark .text-display {
+    @apply bg-gray-900;
+  }
+
+  /* 面板样式 */
+  .panel {
+    @apply bg-white rounded-2xl p-6 shadow-lg;
+  }
+
+  .dark .panel {
+    @apply bg-gray-800;
+  }
+}
+
+/* 打印样式 */
+@layer utilities {
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+
+    .print-only {
+      display: block !important;
+    }
+
+    body {
+      @apply bg-white text-black;
+    }
+
+    .print-page {
+      @apply p-4;
+    }
+
+    .print-character-list {
+      @apply grid grid-cols-6 gap-4;
+    }
+
+    .print-character-item {
+      @apply text-center border border-gray-300 rounded p-2;
+    }
+  }
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
+
+.dark ::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-gray-600;
+}
+
+/* 字号动态调节 */
+body {
+  font-size: 1rem;
+}
+
+body.font-size-small {
+  font-size: 0.875rem;
+}
+
+body.font-size-large {
+  font-size: 1.125rem;
+}
+
+/* 文本显示区字号 */
+.font-size-small .text-display {
+  font-size: 1.25rem;
+}
+
+.font-size-medium .text-display {
+  font-size: 1.5rem;
+}
+
+.font-size-large .text-display {
+  font-size: 1.75rem;
+}
+
+/* 动画类 */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+.animate-bounce-subtle {
+  animation: bounceSubtle 0.5s ease-in-out;
+}
+
+/* 涟漪效果 */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #000 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform 0.5s, opacity 1s;
+}
+
+.ripple:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
 }

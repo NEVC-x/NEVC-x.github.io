@@ -1,0 +1,108 @@
+.stroke-animation-container {
+  @apply relative;
+}
+
+.stroke-canvas {
+  @apply bg-white rounded-xl mx-auto overflow-hidden;
+  width: 200px;
+  height: 200px;
+}
+
+.dark .stroke-canvas {
+  @apply bg-gray-900;
+}
+
+.stroke-canvas.fullscreen {
+  @apply fixed inset-0 z-50 rounded-none;
+  max-width: none;
+  max-height: none;
+  width: 100vw;
+  height: 100vh;
+}
+
+.stroke-progress {
+  @apply mt-4;
+}
+
+.stroke-count {
+  @apply text-sm text-gray-600 font-medium block mb-1.5;
+}
+
+.dark .stroke-count {
+  @apply text-gray-400;
+}
+
+.stroke-progress-bar {
+  @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+}
+
+.dark .stroke-progress-bar {
+  @apply bg-gray-700;
+}
+
+.stroke-progress-fill {
+  @apply h-full bg-primary transition-all duration-300;
+}
+
+.stroke-controls {
+  @apply flex items-center justify-center gap-2 mt-4;
+}
+
+.control-btn {
+  @apply w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all;
+}
+
+.dark .control-btn {
+  @apply bg-gray-700 text-gray-300 hover:bg-gray-600;
+}
+
+.control-btn:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+.step-controls {
+  @apply flex items-center gap-3 mt-4 flex-wrap;
+}
+
+.step-label {
+  @apply text-sm text-gray-600 font-medium;
+}
+
+.dark .step-label {
+  @apply text-gray-400;
+}
+
+.step-buttons {
+  @apply flex flex-wrap gap-1.5;
+}
+
+.step-btn {
+  @apply w-7 h-7 flex items-center justify-center rounded-md bg-gray-100 text-gray-700 text-xs font-medium transition-all hover:bg-gray-200 disabled:opacity-30 disabled:cursor-not-allowed;
+}
+
+.dark .step-btn {
+  @apply bg-gray-700 text-gray-300 hover:bg-gray-600;
+}
+
+.step-btn.completed {
+  @apply bg-primary text-white;
+}
+
+.step-btn.active {
+  @apply ring-2 ring-primary ring-offset-2;
+}
+
+.dark .step-btn.active {
+  @apply ring-offset-gray-800;
+}
+
+/* 响应式 */
+@media (max-width: 640px) {
+  .step-buttons {
+    @apply gap-1;
+  }
+
+  .step-btn {
+    @apply w-6 h-6 text-[10px];
+  }
+}

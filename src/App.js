@@ -1,6 +1,6 @@
-import TextReader from "./TextReader";
+import TextReaderEnhanced from "./TextReader-Enhanced";
 import React from "react";
 
 export default function App() {
-  return <TextReader />;
+  return <TextReaderEnhanced />;
 }

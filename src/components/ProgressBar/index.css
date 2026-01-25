@@ -1,0 +1,221 @@
+/* 进度条组件样式 */
+.progress-bar-wrapper {
+  @apply w-full;
+}
+
+.progress-bar-header {
+  @apply flex justify-between items-center mb-2;
+}
+
+.progress-bar-label {
+  @apply text-sm font-medium text-gray-700;
+}
+
+.dark .progress-bar-label {
+  @apply text-gray-300;
+}
+
+.progress-bar-percentage {
+  @apply text-sm font-bold text-gray-900;
+}
+
+.dark .progress-bar-percentage {
+  @apply text-gray-100;
+}
+
+.progress-bar-container {
+  @apply w-full bg-gray-200 rounded-full overflow-hidden;
+}
+
+.dark .progress-bar-container {
+  @apply bg-gray-700;
+}
+
+.progress-bar-small {
+  @apply h-1.5;
+}
+
+.progress-bar-medium {
+  @apply h-2.5;
+}
+
+.progress-bar-large {
+  @apply h-4;
+}
+
+.progress-bar-fill {
+  @apply h-full rounded-full transition-all duration-300 ease-out;
+}
+
+.progress-bar-primary {
+  @apply bg-primary;
+}
+
+.progress-bar-success {
+  @apply bg-success;
+}
+
+.progress-bar-warning {
+  @apply bg-warning;
+}
+
+.progress-bar-character {
+  @apply bg-character;
+}
+
+/* 学习进度卡片 */
+.learning-progress-card {
+  @apply panel;
+}
+
+.progress-card-header {
+  @apply flex items-center gap-3 mb-4 pb-4 border-b border-gray-100;
+}
+
+.dark .progress-card-header {
+  @apply border-b-gray-700;
+}
+
+.progress-card-icon {
+  @apply text-primary;
+}
+
+.progress-card-title {
+  @apply text-lg font-bold text-gray-900;
+}
+
+.dark .progress-card-title {
+  @apply text-gray-100;
+}
+
+.progress-card-body {
+  @apply space-y-4;
+}
+
+.progress-stats {
+  @apply flex justify-around mb-3;
+}
+
+.progress-stat-item {
+  @apply text-center;
+}
+
+.stat-label {
+  @apply text-xs text-gray-600 block mb-1;
+}
+
+.dark .stat-label {
+  @apply text-gray-400;
+}
+
+.stat-value {
+  @apply text-xl font-bold text-gray-900;
+}
+
+.dark .stat-value {
+  @apply text-gray-100;
+}
+
+.text-primary {
+  @apply text-primary;
+}
+
+.text-success {
+  @apply text-success;
+}
+
+.text-warning {
+  @apply text-warning;
+}
+
+.text-character {
+  @apply text-character;
+}
+
+.progress-details {
+  @apply flex items-center justify-center gap-2 text-sm text-gray-600;
+}
+
+.dark .progress-details {
+  @apply text-gray-400;
+}
+
+.detail-label {
+  @apply font-medium;
+}
+
+.detail-value {
+  @apply font-bold;
+}
+
+/* 步骤进度 */
+.progress-step-wrapper {
+  @apply flex items-center justify-between;
+}
+
+.step-item {
+  @apply flex flex-col items-center gap-2;
+}
+
+.step-indicator {
+  @apply w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center text-sm font-bold text-gray-600 bg-white;
+}
+
+.dark .step-indicator {
+  @apply border-gray-600 text-gray-400 bg-gray-800;
+}
+
+.step-item.completed .step-indicator {
+  @apply bg-success border-success text-white;
+}
+
+.step-item.current .step-indicator {
+  @apply bg-primary border-primary text-white;
+}
+
+.step-current-dot {
+  @apply w-2.5 h-2.5 bg-white rounded-full animate-pulse;
+}
+
+.step-label {
+  @apply text-sm font-medium text-gray-600;
+}
+
+.dark .step-label {
+  @apply text-gray-400;
+}
+
+.step-item.completed .step-label {
+  @apply text-success;
+}
+
+.step-item.current .step-label {
+  @apply text-primary font-bold;
+}
+
+.step-line {
+  @apply flex-1 h-0.5 bg-gray-300 mx-2 max-w-16;
+}
+
+.dark .step-line {
+  @apply bg-gray-600;
+}
+
+.step-line.completed {
+  @apply bg-success;
+}
+
+/* 响应式 */
+@media (max-width: 640px) {
+  .progress-stats {
+    @apply flex-col gap-2;
+  }
+
+  .progress-step-wrapper {
+    @apply flex-wrap;
+  }
+
+  .step-line {
+    @apply hidden;
+  }
+}

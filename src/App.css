@@ -1,12 +1,137 @@
+/* 基础样式 */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'KaiTi', 'STKaiti', '楷体', 'PingFang SC', 'Microsoft YaHei', '微软雅黑', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.app-container {
+  @apply min-h-screen bg-gray-50 font-sans;
+}
+
+.dark .app-container {
+  @apply bg-gray-900;
+}
+
+/* 导航栏 */
+.app-nav {
+  @apply bg-white shadow-sm sticky top-0 z-40 px-6 py-4;
+}
+
+.dark .app-nav {
+  @apply bg-gray-800 shadow-lg;
+}
+
+.nav-brand {
+  @apply flex items-center gap-3;
+}
+
+.nav-icon {
+  @apply p-2 bg-primary/10 rounded-xl;
+}
+
+.nav-title {
+  @apply text-xl font-bold text-gray-900;
+}
+
+.dark .nav-title {
+  @apply text-gray-100;
+}
+
+.nav-subtitle {
+  @apply text-sm text-gray-500;
+}
+
+.dark .nav-subtitle {
+  @apply text-gray-400;
+}
+
+.nav-menu {
+  @apply flex items-center gap-1 ml-auto;
+}
+
+.nav-item {
+  @apply flex items-center gap-2 px-4 py-2 rounded-lg text-gray-600 font-medium transition-all hover:bg-gray-100;
+}
+
+.dark .nav-item {
+  @apply text-gray-400 hover:bg-gray-700;
+}
+
+.nav-item.active {
+  @apply bg-primary text-white;
+}
+
+/* 主内容区 */
+.app-main {
+  @apply p-6;
+}
+
+.view-content {
+  @apply max-w-7xl mx-auto;
+}
+
+.content-grid {
+  @apply grid grid-cols-1 lg:grid-cols-3 gap-6;
+}
+
+.content-main {
+  @apply lg:col-span-2;
+}
+
+.content-sidebar {
+  @apply space-y-6;
+}
+
+/* 统计页面 */
+.stats-container {
+  @apply max-w-5xl mx-auto;
+}
+
+.page-title {
+  @apply text-2xl font-bold text-gray-900 mb-6;
+}
+
+.dark .page-title {
+  @apply text-gray-100;
+}
+
+.stats-grid-full {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .app-nav {
+    @apply px-4;
+  }
+
+  .nav-menu {
+    @apply fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-2 justify-around z-50;
+  }
+
+  .dark .nav-menu {
+    @apply bg-gray-800 border-gray-700;
+  }
+
+  .nav-item {
+    @apply flex-col gap-1 px-3 py-2 text-xs;
+  }
+
+  .nav-item svg {
+    @apply w-5 h-5;
+  }
+
+  .app-main {
+    @apply p-4 pb-24;
+  }
+
+  .content-grid {
+    @apply grid-cols-1;
+  }
 }

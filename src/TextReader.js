@@ -1,311 +1,80 @@
 import React, { useState } from "react";
-import HanziStroke from "./HanziStroke";
 
 /* =======================
    汉字词典数据
 ======================= */
-
 const DICTIONARY = {
-  学: {
+  "学": {
     pinyin: "xué",
-    meaning: "学习、学问",
-    strokes: [
-      "M30 25 L70 25",
-      "M40 35 L50 45",
-      "M60 35 L50 45",
-      "M30 55 L70 55",
-      "M50 55 L50 85"
-    ],
-    examples: ["学习", "学校", "学生", "学会", "大学"]
+    meaning: "1. 学习，模仿 2. 学问，知识 3. 学校",
+    strokes: "点、点、撇、点、横撇/横钩、横、横、竖",
+    examples: ["学生", "学校", "学习", "数学", "化学"]
   },
-  京: {
+  "京": {
     pinyin: "jīng",
-    meaning: "首都、城市",
-    strokes: [
-      "M35 20 L65 20",
-      "M30 30 L70 30",
-      "M30 30 L30 55",
-      "M70 30 L70 55",
-      "M30 55 L70 55",
-      "M50 60 L50 85",
-      "M40 70 L30 85",
-      "M60 70 L70 85"
-    ],
-    examples: ["北京", "京剧", "京城", "南京", "东京"]
+    meaning: "1. 国都，首都 2. 大 3. 古代数目名",
+    strokes: "点、横、竖、横折、横、横、竖、横折、横、横",
+    examples: ["北京", "京剧", "京城", "京沪"]
   },
-  剧: {
+  "剧": {
     pinyin: "jù",
-    meaning: "戏剧、演出",
-    strokes: [
-      "M25 20 L75 20",
-      "M25 20 L25 70",
-      "M25 45 L70 45",
-      "M40 45 L40 70",
-      "M80 30 L80 85"
-    ],
-    examples: ["京剧", "戏剧", "喜剧", "悲剧", "剧场"]
+    meaning: "1. 戏剧，文艺的一种形式 2. 夸大，猛烈",
+    strokes: "横、撇、横、竖、竖、横折、横、横、撇、横撇/横钩、捺",
+    examples: ["京剧", "戏剧", "剧本", "剧毒"]
   },
-  唱: {
-    pinyin: "chàng",
-    meaning: "歌唱、演唱",
-    strokes: [
-      "M25 30 L55 30",
-      "M25 30 L25 55",
-      "M55 30 L55 55",
-      "M25 55 L55 55",
-      "M65 30 L90 30",
-      "M65 30 L65 55",
-      "M90 30 L90 55",
-      "M65 55 L90 55",
-      "M65 60 L90 60",
-      "M65 60 L65 85",
-      "M90 60 L90 85",
-      "M65 85 L90 85"
-    ],
-    examples: ["唱歌", "唱戏", "演唱", "合唱", "独唱"]
-  },
-  戏: {
-    pinyin: "xì",
-    meaning: "戏剧、玩耍",
-    strokes: [
-      "M30 25 L70 25",
-      "M55 25 L55 55",
-      "M40 55 L70 80",
-      "M30 60 L45 80",
-      "M45 80 L60 65"
-    ],
-    examples: ["唱戏", "看戏", "戏剧", "游戏", "戏院"]
-  },
-  我: {
-    pinyin: "wǒ",
-    meaning: "自己",
-    strokes: [
-      "M35 25 L65 25",
-      "M50 25 L50 80",
-      "M30 40 L70 40",
-      "M35 55 L65 55",
-      "M40 70 L60 70"
-    ],
-    examples: ["我们", "我的", "自己", "我要", "我国"]
-  },
-  很: {
+  "很": {
     pinyin: "hěn",
-    meaning: "非常",
-    strokes: [
-      "M30 25 L70 25",
-      "M30 25 L30 85",
-      "M70 25 L70 85",
-      "M50 40 L50 70"
-    ],
-    examples: ["很好", "很多", "很棒", "很漂亮", "很厉害"]
+    meaning: "1. 表示程度深 2. 非常，十分",
+    strokes: "撇、撇、横、竖、点、点、点、点",
+    examples: ["很好", "很多", "很大", "很快"]
   },
-  好: {
+  "好": {
     pinyin: "hǎo",
-    meaning: "优秀、美丽",
-    strokes: [
-      "M30 25 L70 25",
-      "M50 25 L50 60",
-      "M30 60 L70 60",
-      "M40 70 L60 70"
-    ],
-    examples: ["好看", "好人", "好吃", "好玩", "好天气"]
+    meaning: "1. 优点多，使人满意 2. 友爱，和睦 3. 易，便于",
+    strokes: "撇、撇、横、横、竖、横",
+    examples: ["好人", "好事", "好学", "好看"]
   },
-  跟: {
+  "看": {
+    pinyin: "kàn",
+    meaning: "1. 使视线接触到人或物 2. 观察，判断 3. 认为，以为",
+    strokes: "撇、横、横、撇、横、横、竖、横折、横",
+    examples: ["看书", "看见", "看戏", "看台"]
+  },
+  "跟": {
     pinyin: "gēn",
-    meaning: "跟随、和",
-    strokes: [
-      "M25 25 L75 25",
-      "M50 25 L50 85",
-      "M30 40 L70 40",
-      "M40 55 L60 55"
-    ],
-    examples: ["跟着", "跟谁", "跟我", "跟随", "跟班"]
+    meaning: "1. 脚的后部 2. 在后面紧接着向同一方向行动 3. 和，同",
+    strokes: "足字旁、艮（横、竖、横、撇、捺）",
+    examples: ["跟车", "跟从", "跟随", "跟上"]
   },
-  老: {
+  "老": {
     pinyin: "lǎo",
-    meaning: "年长、陈旧",
-    strokes: [
-      "M40 20 L60 20",
-      "M40 20 L40 70",
-      "M60 20 L60 70",
-      "M30 35 L70 35",
-      "M50 55 L50 85"
-    ],
-    examples: ["老师", "老人", "老同学", "老板", "老乡"]
+    meaning: "1. 年纪大，时间长 2. 陈旧 3. 原来的",
+    strokes: "横、竖、横、撇、横撇/横钩、竖、横折、横",
+    examples: ["老师", "老人", "老大", "老张"]
   },
-  师: {
+  "师": {
     pinyin: "shī",
-    meaning: "教师、专家",
-    strokes: [
-      "M30 20 L70 20",
-      "M30 20 L30 50",
-      "M70 20 L70 50",
-      "M50 50 L50 85",
-      "M40 60 L60 60"
-    ],
-    examples: ["老师", "师生", "师父", "师傅", "师范"]
+    meaning: "1. 教人的人 2. 榜样 3. 擅长某种技术的人",
+    strokes: "竖、撇、点、横、撇、横、竖、横折、横",
+    examples: ["老师", "师父", "教师", "师范"]
   },
-  山: {
-    pinyin: "shān",
-    meaning: "山峰、山脉",
-    strokes: [
-      "M50 20 L50 80",
-      "M30 50 L70 50",
-      "M40 70 L60 70"
-    ],
-    examples: ["大山", "高山", "山路", "山水", "爬山"]
+  "唱": {
+    pinyin: "chàng",
+    meaning: "1. 发出声音，依照乐律发出声音 2. 高呼，叫",
+    strokes: "口字旁、昌（日、日）",
+    examples: ["唱歌", "唱戏", "演唱", "独唱"]
   },
-  水: {
-    pinyin: "shuǐ",
-    meaning: "水、液体",
-    strokes: [
-      "M30 40 L70 40",
-      "M40 50 L50 70",
-      "M60 50 L50 70"
-    ],
-    examples: ["河水", "水杯", "水果", "喝水", "水平"]
-  },
-  火: {
-    pinyin: "huǒ",
-    meaning: "火焰、燃烧",
-    strokes: [
-      "M40 30 L60 30",
-      "M45 45 L55 45",
-      "M50 60 L50 75"
-    ],
-    examples: ["大火", "火车", "火花", "火山", "火苗"]
-  },
-  木: {
-    pinyin: "mù",
-    meaning: "树木、木材",
-    strokes: [
-      "M50 20 L50 80",
-      "M30 50 L70 50"
-    ],
-    examples: ["木头", "树木", "木门", "木匠", "木屋"]
-  },
-  人: {
-    pinyin: "rén",
-    meaning: "人类、个人",
-    strokes: [
-      "M40 30 L40 60",
-      "M40 60 L60 40"
-    ],
-    examples: ["大人", "人民", "人生", "人口", "人工"]
-  },
-  口: {
-    pinyin: "kǒu",
-    meaning: "嘴巴、开口",
-    strokes: [
-      "M30 30 L70 30",
-      "M30 30 L30 60",
-      "M70 30 L70 60",
-      "M30 60 L70 60"
-    ],
-    examples: ["人口", "门口", "口袋", "口红", "口水"]
-  },
-  大: {
-    pinyin: "dà",
-    meaning: "巨大、年长",
-    strokes: [
-      "M30 30 L70 30",
-      "M50 30 L50 70",
-      "M30 70 L70 70"
-    ],
-    examples: ["大家", "大人", "大树", "大海", "大地"]
-  },
-  小: {
-    pinyin: "xiǎo",
-    meaning: "细小、年轻",
-    strokes: [
-      "M50 20 L50 80",
-      "M35 45 L65 45",
-      "M40 65 L60 65"
-    ],
-    examples: ["小狗", "小猫", "小心", "小孩", "小鸟"]
-  },
-  天: {
-    pinyin: "tiān",
-    meaning: "天空、天体",
-    strokes: [
-      "M30 30 L70 30",
-      "M30 30 L30 60",
-      "M70 30 L70 60",
-      "M30 60 L70 60",
-      "M50 60 L50 80"
-    ],
-    examples: ["天空", "天气", "天堂", "天生", "今天"]
-  },
-  地: {
-    pinyin: "dì",
-    meaning: "土地、地面",
-    strokes: [
-      "M30 20 L70 20",
-      "M50 20 L50 50",
-      "M30 50 L70 50",
-      "M35 65 L65 65"
-    ],
-    examples: ["土地", "地球", "地方", "地下", "地址"]
+  "戏": {
+    pinyin: "xì",
+    meaning: "1. 玩耍，游戏 2. 嘲笑，开玩笑 3. 戏剧，歌舞等表演",
+    strokes: "又、戈",
+    examples: ["京剧", "游戏", "戏剧", "戏曲"]
   }
 };
 
 /* =======================
-   汉字详情卡片组件
-======================= */
-
-function CharacterDetailCard({ char, onClose }) {
-  const data = DICTIONARY[char];
-  if (!data) return null;
-
-  const playSound = () => {
-    const u = new SpeechSynthesisUtterance(char);
-    u.lang = "zh-CN";
-    speechSynthesis.cancel();
-    speechSynthesis.speak(u);
-  };
-
-  return (
-    <div className="character-card" onClick={playSound}>
-      <div className="card-header">
-        <div className="character-display">{char}</div>
-        <button className="close-btn" onClick={(e) => { e.stopPropagation(); onClose(); }}>
-          ×
-        </button>
-      </div>
-
-      <div className="pinyin-section">
-        <span className="pinyin-label">拼音：</span>
-        <span className="pinyin-text">{data.pinyin}</span>
-      </div>
-
-      <div className="meaning-section">
-        <span className="meaning-label">释义：</span>
-        <span className="meaning-text">{data.meaning}</span>
-      </div>
-
-      <div className="strokes-section">
-        <div className="strokes-title">✍️ 笔顺演示</div>
-        <HanziStroke char={char} />
-      </div>
-
-      <div className="examples-section">
-        <span className="examples-label">例词：</span>
-        <div className="examples-grid">
-          {data.examples.map((word, index) => (
-            <span key={index} className="example-word">{word}</span>
-          ))}
-        </div>
-      </div>
-
-      <div className="card-hint">点击卡片发音，点击背景关闭</div>
-    </div>
-  );
-}
-
-/* =======================
    随文识字阅读器组件
 ======================= */
-
 export default function TextReader() {
   const [inputText, setInputText] = useState("我学京剧。京剧很好看。我跟老师学唱戏。");
   const [highlightedText, setHighlightedText] = useState("");
@@ -314,20 +83,11 @@ export default function TextReader() {
   const [searchResult, setSearchResult] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
   const [studyProgress, setStudyProgress] = useState({});
-  const [clickEffect, setClickEffect] = useState(null);
-
-  // 处理文本输入
-  const handleTextChange = (e) => {
-    const text = e.target.value;
-    setInputText(text);
-    highlightCharacters(text);
-  };
 
   // 高亮显示课文中的生字
   const highlightCharacters = (text) => {
     let highlighted = "";
-    for (let i = 0; i < text.length; i++) {
-      const char = text[i];
+    for (let char of text) {
       if (DICTIONARY[char]) {
         highlighted += `<span class="highlighted-char" data-char="${char}">${char}</span>`;
       } else {
@@ -337,12 +97,24 @@ export default function TextReader() {
     setHighlightedText(highlighted);
   };
 
+  // 处理文本输入
+  const handleTextChange = (e) => {
+    const text = e.target.value;
+    setInputText(text);
+    highlightCharacters(text);
+  };
+
   // 处理汉字点击
   const handleCharClick = (e) => {
     if (e.target.classList.contains('highlighted-char')) {
       const char = e.target.getAttribute('data-char');
       setSelectedChar(char);
-      handleCharClickEffect(e, char);
+
+      // 播放发音
+      const u = new SpeechSynthesisUtterance(char);
+      u.lang = "zh-CN";
+      speechSynthesis.cancel();
+      speechSynthesis.speak(u);
     }
   };
 
@@ -362,39 +134,12 @@ export default function TextReader() {
     setSearchResult(null);
   };
 
-  // 切换主题
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
-
   // 切换学习进度
   const toggleCharacterProgress = (char) => {
     setStudyProgress(prev => ({
       ...prev,
       [char]: !prev[char]
     }));
-  };
-
-  // 处理生字点击效果
-  const handleCharClickEffect = (e, char) => {
-    const rect = e.target.getBoundingClientRect();
-    setClickEffect({
-      char,
-      x: rect.left + rect.width / 2,
-      y: rect.top + rect.height / 2,
-      visible: true
-    });
-
-    // 播放发音
-    const u = new SpeechSynthesisUtterance(char);
-    u.lang = "zh-CN";
-    speechSynthesis.cancel();
-    speechSynthesis.speak(u);
-
-    // 1秒后隐藏效果
-    setTimeout(() => {
-      setClickEffect(prev => ({...prev, visible: false}));
-    }, 1000);
   };
 
   // 获取课文中出现的所有生字
@@ -410,51 +155,36 @@ export default function TextReader() {
 
   return (
     <div className={`text-reader-container ${darkMode ? 'dark-mode' : ''}`}>
-      <div className="reader-header">
-        <div className="header-content">
-          <div className="title-section">
-            <h1>📚 随文识字</h1>
-            <p>在课文中点击生字，查看拼音、释义和笔顺</p>
-          </div>
-          <button className="theme-toggle" onClick={toggleDarkMode}>
-            {darkMode ? '☀️ 日间模式' : '🌙 夜间模式'}
-          </button>
-        </div>
-
-        <div className="search-section">
-          <input
-            type="text"
-            className="search-input"
-            value={searchChar}
-            onChange={(e) => setSearchChar(e.target.value)}
-            placeholder="输入汉字进行查询..."
-            maxLength={1}
-          />
-          <button className="search-btn" onClick={handleSearch}>查询</button>
-          {searchChar && (
-            <button className="clear-btn" onClick={handleSearchClear}>×</button>
-          )}
-          {searchResult && (
-            <div className="search-result">
-              找到汉字：{searchChar}
-            </div>
-          )}
-          {searchChar && !searchResult && !/[一-龯]/.test(searchChar) && (
-            <div className="search-error">
-              请输入有效的汉字
-            </div>
-          )}
-          {searchChar && !searchResult && /[一-龯]/.test(searchChar) && (
-            <div className="search-not-found">
-              字典中暂未收录此字
-            </div>
-          )}
-        </div>
+      <div className="header">
+        <h1>📚 随文识字</h1>
+        <p>在课文中点击生字，查看拼音、释义和笔顺</p>
+        <button className="theme-toggle" onClick={() => setDarkMode(!darkMode)}>
+          {darkMode ? '☀️ 日间模式' : '🌙 夜间模式'}
+        </button>
       </div>
 
-      <div className="reader-content">
-        {/* 左侧：课文输入和显示 */}
-        <div className="text-input-section">
+      <div className="search-section">
+        <input
+          type="text"
+          className="search-input"
+          value={searchChar}
+          onChange={(e) => setSearchChar(e.target.value)}
+          placeholder="输入汉字进行查询..."
+          maxLength={1}
+        />
+        <button className="search-btn" onClick={handleSearch}>查询</button>
+        {searchChar && (
+          <button className="clear-btn" onClick={handleSearchClear}>×</button>
+        )}
+        {searchResult && (
+          <div className="search-result">
+            找到汉字：{searchChar}
+          </div>
+        )}
+      </div>
+
+      <div className="main-content">
+        <div className="text-section">
           <div className="input-label">输入课文：</div>
           <textarea
             className="text-input"
@@ -473,7 +203,6 @@ export default function TextReader() {
           </div>
         </div>
 
-        {/* 右侧：生字表和学习卡片 */}
         <div className="sidebar">
           <div className="character-list">
             <h3>📖 生字表</h3>
@@ -493,54 +222,55 @@ export default function TextReader() {
             <p className="progress-hint">单击查看详情，双击标记已掌握</p>
           </div>
 
-          <div className="learning-stats">
+          <div className="stats-section">
             <h3>📊 学习统计</h3>
-            <div className="stats-content">
-              <p>课文字数：<span className="stat-number">{inputText.length}</span></p>
-              <p>生字数量：<span className="stat-number">{getUniqueChars().length}</span></p>
-              <p>已掌握：<span className="stat-number">
-                {Object.keys(studyProgress).filter(k => studyProgress[k]).length}
-              </span></p>
-              <p>掌握率：<span className="stat-number">
-                {getUniqueChars().length > 0 ?
-                  Math.round((Object.keys(studyProgress).filter(k => studyProgress[k]).length / getUniqueChars().length) * 100) :
-                  0}%
-              </span></p>
-              <p>生字占比：<span className="stat-number">
-                {inputText.length > 0 ?
-                  Math.round((getUniqueChars().length / inputText.length) * 100) :
-                  0}%
-              </span></p>
-            </div>
+            <p>课文字数：<span className="stat-number">{inputText.length}</span></p>
+            <p>生字数量：<span className="stat-number">{getUniqueChars().length}</span></p>
+            <p>已掌握：<span className="stat-number">
+              {Object.keys(studyProgress).filter(k => studyProgress[k]).length}
+            </span></p>
           </div>
         </div>
       </div>
 
-      {/* 汉字详情卡片弹出层 */}
+      {/* 汉字详情卡片 */}
       {selectedChar && (
         <div className="overlay" onClick={() => setSelectedChar(null)}>
-          <CharacterDetailCard
-            char={selectedChar}
-            onClose={() => setSelectedChar(null)}
-          />
-        </div>
-      )}
+          <div className="character-card" onClick={(e) => e.stopPropagation()}>
+            <div className="card-header">
+              <div className="character-display">{selectedChar}</div>
+              <button className="close-btn" onClick={() => setSelectedChar(null)}>
+                ×
+              </button>
+            </div>
 
-      {/* 点击效果 */}
-      {clickEffect && clickEffect.visible && (
-        <div
-          className="click-effect"
-          style={{
-            left: clickEffect.x,
-            top: clickEffect.y,
-          }}
-        >
-          <div className="effect-char">{clickEffect.char}</div>
-          <div className="effect-ring"></div>
-          <div className="effect-particles">
-            {[...Array(8)].map((_, i) => (
-              <div key={i} className="particle" style={{'--i': i}}></div>
-            ))}
+            {DICTIONARY[selectedChar] && (
+              <>
+                <div className="pinyin-section">
+                  <span className="pinyin-label">拼音：</span>
+                  <span className="pinyin">{DICTIONARY[selectedChar].pinyin}</span>
+                </div>
+
+                <div className="meaning-section">
+                  <span className="meaning-label">释义：</span>
+                  <span className="meaning">{DICTIONARY[selectedChar].meaning}</span>
+                </div>
+
+                <div className="strokes-section">
+                  <span className="strokes-label">笔顺：</span>
+                  <span className="strokes">{DICTIONARY[selectedChar].strokes}</span>
+                </div>
+
+                <div className="examples-section">
+                  <span className="examples-label">例词：</span>
+                  <div className="examples">
+                    {DICTIONARY[selectedChar].examples.map((word, index) => (
+                      <span key={index} className="example-word">{word}</span>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}
@@ -554,33 +284,23 @@ export default function TextReader() {
           min-height: 100vh;
         }
 
-        .reader-header {
+        .dark-mode {
+          background: #1a1a1a;
+          color: #e0e0e0;
+        }
+
+        .header {
+          text-align: center;
           margin-bottom: 30px;
         }
 
-        .header-content {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 20px;
-        }
-
-        .title-section {
-          flex: 1;
-        }
-
-        .reader-header h1 {
+        .header h1 {
           color: #2b7cff;
           margin-bottom: 10px;
-          text-align: left;
         }
 
-        .progress-hint {
-          font-size: 12px;
-          color: #666;
-          text-align: center;
-          margin-top: 10px;
-          font-style: italic;
+        .dark-mode .header h1 {
+          color: #4a9eff;
         }
 
         .theme-toggle {
@@ -591,50 +311,129 @@ export default function TextReader() {
           color: #2b7cff;
           cursor: pointer;
           font-size: 16px;
+          margin-top: 15px;
           transition: all 0.3s;
-          font-weight: 500;
-          white-space: nowrap;
         }
 
         .theme-toggle:hover {
           background: #2b7cff;
           color: white;
-          transform: scale(1.05);
         }
 
-        .theme-toggle:active {
-          transform: scale(0.95);
+        .dark-mode .theme-toggle {
+          background: #2a2a2a;
+          border-color: #4a9eff;
+          color: #4a9eff;
         }
 
-        .reader-content {
+        .dark-mode .theme-toggle:hover {
+          background: #4a9eff;
+          color: white;
+        }
+
+        .search-section {
+          background: white;
+          padding: 20px;
+          border-radius: 15px;
+          margin-bottom: 20px;
+          display: flex;
+          gap: 10px;
+          align-items: center;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode .search-section {
+          background: #2a2a2a;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .search-input {
+          flex: 1;
+          padding: 10px 15px;
+          border: 2px solid #e0e0e0;
+          border-radius: 8px;
+          font-size: 16px;
+        }
+
+        .search-input:focus {
+          outline: none;
+          border-color: #2b7cff;
+        }
+
+        .dark-mode .search-input {
+          background: #1a1a1a;
+          border-color: #444;
+          color: #e0e0e0;
+        }
+
+        .search-btn, .clear-btn {
+          padding: 10px 15px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+
+        .search-btn {
+          background: #2b7cff;
+          color: white;
+        }
+
+        .search-btn:hover {
+          background: #1a5eff;
+        }
+
+        .clear-btn {
+          background: #f0f0f0;
+          color: #666;
+        }
+
+        .clear-btn:hover {
+          background: #e0e0e0;
+        }
+
+        .search-result {
+          color: #4caf50;
+          font-weight: bold;
+          margin-left: auto;
+        }
+
+        .main-content {
           display: grid;
           grid-template-columns: 2fr 1fr;
           gap: 30px;
         }
 
-        .text-input-section {
+        .text-section {
           background: white;
           padding: 25px;
           border-radius: 15px;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode .text-section {
+          background: #2a2a2a;
         }
 
         .input-label {
-          font-size: 16px;
-          color: #333;
-          margin-bottom: 10px;
           font-weight: bold;
+          color: #333;
+          margin-bottom: 15px;
+          font-size: 16px;
+        }
+
+        .dark-mode .input-label {
+          color: #e0e0e0;
         }
 
         .text-input {
           width: 100%;
-          padding: 12px;
+          padding: 15px;
           border: 2px solid #e0e0e0;
-          border-radius: 8px;
+          border-radius: 10px;
           font-size: 16px;
-          margin-bottom: 20px;
           resize: vertical;
-          transition: border-color 0.3s;
+          margin-bottom: 20px;
         }
 
         .text-input:focus {
@@ -642,26 +441,41 @@ export default function TextReader() {
           border-color: #2b7cff;
         }
 
+        .dark-mode .text-input {
+          background: #1a1a1a;
+          border-color: #444;
+          color: #e0e0e0;
+        }
+
         .text-display {
           background: #f8f9fa;
-          padding: 25px;
           border-radius: 10px;
-          min-height: 100px;
+          padding: 30px;
           font-size: 24px;
           line-height: 1.8;
+          min-height: 200px;
+        }
+
+        .dark-mode .text-display {
+          background: #1a1a1a;
+          color: #e0e0e0;
         }
 
         .highlighted-char {
           color: #2b7cff;
           cursor: pointer;
-          padding: 0 2px;
-          border-radius: 3px;
+          padding: 2px 4px;
+          border-radius: 4px;
           transition: all 0.2s;
         }
 
         .highlighted-char:hover {
-          background-color: #e3f2fd;
+          background: #e3f2fd;
           transform: scale(1.1);
+        }
+
+        .dark-mode .highlighted-char:hover {
+          background: #2a4a8a;
         }
 
         .sidebar {
@@ -670,37 +484,31 @@ export default function TextReader() {
           gap: 20px;
         }
 
-        .character-list,
-        .learning-stats {
+        .character-list, .stats-section {
           background: white;
-          padding: 20px;
+          padding: 25px;
           border-radius: 15px;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .character-list h3,
-        .learning-stats h3 {
-          color: #333;
-          margin-bottom: 15px;
-          font-size: 18px;
+        .dark-mode .character-list, .dark-mode .stats-section {
+          background: #2a2a2a;
+        }
+
+        .character-list h3, .stats-section h3 {
+          color: #2b7cff;
+          margin-bottom: 20px;
+        }
+
+        .dark-mode .character-list h3, .dark-mode .stats-section h3 {
+          color: #4a9eff;
         }
 
         .character-grid {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-          gap: 10px;
-        }
-
-        .character-item {
-          aspect-ratio: 1;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 24px;
-          background: #f0f4f8;
-          border-radius: 8px;
-          cursor: pointer;
-          transition: all 0.2s;
+          gap: 15px;
+          margin-bottom: 20px;
         }
 
         .character-item {
@@ -740,22 +548,27 @@ export default function TextReader() {
           font-weight: bold;
         }
 
-        .stats-content {
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
+        .progress-hint {
+          font-size: 12px;
+          color: #666;
+          text-align: center;
+          font-style: italic;
         }
 
-        .stats-content p {
+        .stats-section p {
           display: flex;
           justify-content: space-between;
-          align-items: center;
+          margin-bottom: 10px;
+          font-size: 14px;
         }
 
         .stat-number {
-          font-weight: bold;
           color: #2b7cff;
-          font-size: 18px;
+          font-weight: bold;
+        }
+
+        .dark-mode .stat-number {
+          color: #4a9eff;
         }
 
         .overlay {
@@ -769,28 +582,32 @@ export default function TextReader() {
           align-items: center;
           justify-content: center;
           z-index: 1000;
-          padding: 20px;
         }
 
         .character-card {
           background: white;
-          border-radius: 20px;
+          border-radius: 15px;
           padding: 30px;
-          max-width: 400px;
-          width: 100%;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-          cursor: pointer;
+          max-width: 500px;
+          margin: 20px;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .dark-mode .character-card {
+          background: #2a2a2a;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
         .card-header {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 20px;
+          margin-bottom: 25px;
         }
 
         .character-display {
           font-size: 72px;
+          font-weight: bold;
           color: #2b7cff;
         }
 
@@ -806,7 +623,6 @@ export default function TextReader() {
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: all 0.2s;
         }
 
         .close-btn:hover {
@@ -814,474 +630,100 @@ export default function TextReader() {
           color: #333;
         }
 
-        .pinyin-section,
-        .meaning-section,
-        .strokes-section,
-        .examples-section {
+        .dark-mode .close-btn {
+          background: #333;
+          color: #bbb;
+        }
+
+        .dark-mode .close-btn:hover {
+          background: #444;
+          color: #fff;
+        }
+
+        .pinyin-section, .meaning-section, .strokes-section, .examples-section {
           margin-bottom: 20px;
         }
 
-        .pinyin-label,
-        .meaning-label,
-        .examples-label {
+        .pinyin-label, .meaning-label, .strokes-label, .examples-label {
           font-weight: bold;
-          color: #666;
+          color: #333;
           margin-right: 10px;
         }
 
-        .pinyin-text {
+        .dark-mode .pinyin-label, .dark-mode .meaning-label,
+        .dark-mode .strokes-label, .dark-mode .examples-label {
+          color: #e0e0e0;
+        }
+
+        .pinyin {
           color: #2b7cff;
-          font-size: 18px;
+          font-weight: 500;
         }
 
-        .meaning-text {
-          color: #333;
+        .dark-mode .pinyin {
+          color: #4a9eff;
         }
 
-        .strokes-title {
-          margin-bottom: 10px;
+        .meaning {
           color: #666;
+          line-height: 1.6;
         }
 
-        .examples-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        .dark-mode .meaning {
+          color: #bbb;
+        }
+
+        .strokes {
+          color: #ff9800;
+          font-size: 14px;
+        }
+
+        .dark-mode .strokes {
+          color: #ffa726;
+        }
+
+        .examples {
+          display: flex;
+          flex-wrap: wrap;
           gap: 8px;
+          justify-content: center;
         }
 
         .example-word {
           background: #f0f4f8;
           padding: 6px 12px;
-          border-radius: 6px;
-          text-align: center;
+          border-radius: 20px;
           font-size: 14px;
+          color: #666;
           transition: all 0.2s;
         }
 
         .example-word:hover {
           background: #e3f2fd;
-        }
-
-        .card-hint {
-          text-align: center;
-          color: #999;
-          font-size: 14px;
-          margin-top: 15px;
-        }
-
-        .search-section {
-          margin-top: 25px;
-          padding: 20px;
-          background: white;
-          border-radius: 15px;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          flex-wrap: wrap;
-        }
-
-        .search-input {
-          flex: 1;
-          min-width: 200px;
-          padding: 10px 15px;
-          border: 2px solid #e0e0e0;
-          border-radius: 8px;
-          font-size: 16px;
-          transition: border-color 0.3s;
-        }
-
-        .search-input:focus {
-          outline: none;
-          border-color: #2b7cff;
-        }
-
-        .search-btn, .clear-btn {
-          padding: 10px 20px;
-          border: none;
-          border-radius: 8px;
-          font-size: 16px;
-          cursor: pointer;
-          transition: all 0.2s;
-        }
-
-        .search-btn {
-          background: #2b7cff;
-          color: white;
-        }
-
-        .search-btn:hover {
-          background: #1a5eff;
-        }
-
-        .clear-btn {
-          background: #f0f0f0;
-          color: #666;
-          min-width: 36px;
-          height: 36px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .clear-btn:hover {
-          background: #e0e0e0;
-        }
-
-        .clear-btn:active,
-        .search-btn:active {
-          transform: scale(0.95);
-        }
-
-        /* 输入框聚焦动画 */
-        .text-input:focus,
-        .search-input:focus {
-          animation: inputGlow 0.3s ease-out;
-        }
-
-        @keyframes inputGlow {
-          0% {
-            box-shadow: 0 0 0 0 rgba(43, 124, 255, 0.4);
-          }
-          70% {
-            box-shadow: 0 0 0 10px rgba(43, 124, 255, 0);
-          }
-          100% {
-            box-shadow: 0 0 0 0 rgba(43, 124, 255, 0);
-          }
-        }
-
-        .search-result {
-          color: #4caf50;
-          font-weight: bold;
-          margin-left: 10px;
-        }
-
-        .search-error {
-          color: #f44336;
-          font-size: 14px;
-          margin-left: 10px;
-        }
-
-        .search-not-found {
-          color: #ff9800;
-          font-size: 14px;
-          margin-left: 10px;
-        }
-
-        /* 夜间模式样式 */
-        .dark-mode {
-          background: #1a1a1a;
-          color: #e0e0e0;
-        }
-
-        .dark-mode .text-reader-container {
-          background: #0d0d0d;
-        }
-
-        .dark-mode .text-input-section,
-        .dark-mode .character-list,
-        .dark-mode .learning-stats,
-        .dark-mode .search-section {
-          background: #1e1e1e;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-
-        .dark-mode .text-input {
-          background: #2a2a2a;
-          border-color: #444;
-          color: #e0e0e0;
-        }
-
-        .dark-mode .text-input:focus {
-          border-color: #4a9eff;
-        }
-
-        .dark-mode .text-display {
-          background: #1a1a1a;
-          color: #e0e0e0;
-        }
-
-        .dark-mode .highlighted-char {
-          color: #4a9eff;
-        }
-
-        .dark-mode .highlighted-char:hover {
-          background-color: #2a2a2a;
-        }
-
-        .dark-mode .character-item {
-          background: #2a2a2a;
-          color: #e0e0e0;
-        }
-
-        .dark-mode .character-item.learned {
-          background: #1b3b1b;
-          border-color: #66bb6a;
-        }
-
-        .dark-mode .character-item:hover {
-          background: #4a9eff;
-        }
-
-        .dark-mode .character-item.learned:hover {
-          background: #66bb6a;
-        }
-
-        .dark-mode .stat-number {
-          color: #4a9eff;
-        }
-
-        .dark-mode .theme-toggle {
-          background: #2a2a2a;
-          border-color: #4a9eff;
-          color: #4a9eff;
-        }
-
-        .dark-mode .theme-toggle:hover {
-          background: #4a9eff;
-          color: white;
-        }
-
-        .dark-mode .search-input {
-          background: #2a2a2a;
-          border-color: #444;
-          color: #e0e0e0;
-        }
-
-        .dark-mode .search-input:focus {
-          border-color: #4a9eff;
+          transform: scale(1.05);
         }
 
         .dark-mode .example-word {
           background: #2a2a2a;
-          color: #e0e0e0;
+          color: #bbb;
         }
 
         .dark-mode .example-word:hover {
-          background: #2a2a2a;
-        }
-
-        /* 点击效果样式 */
-        .click-effect {
-          position: fixed;
-          pointer-events: none;
-          z-index: 9999;
-          transform: translate(-50%, -50%);
-        }
-
-        .effect-char {
-          font-size: 48px;
-          color: #2b7cff;
-          font-weight: bold;
-          animation: charFloat 1s ease-out forwards;
-          text-shadow: 0 0 20px rgba(43, 124, 255, 0.5);
-        }
-
-        .effect-ring {
-          position: absolute;
-          width: 80px;
-          height: 80px;
-          border: 3px solid #2b7cff;
-          border-radius: 50%;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          animation: ringExpand 1s ease-out forwards;
-        }
-
-        .effect-particles {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-        }
-
-        .particle {
-          position: absolute;
-          width: 8px;
-          height: 8px;
-          background: #2b7cff;
-          border-radius: 50%;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          animation: particleFly 1s ease-out forwards;
-        }
-
-        @keyframes charFloat {
-          0% {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(0.5);
-          }
-          50% {
-            opacity: 1;
-            transform: translate(-50%, -70%) scale(1.2);
-          }
-          100% {
-            opacity: 0;
-            transform: translate(-50%, -90%) scale(1);
-          }
-        }
-
-        @keyframes ringExpand {
-          0% {
-            width: 20px;
-            height: 20px;
-            opacity: 1;
-          }
-          100% {
-            width: 80px;
-            height: 80px;
-            opacity: 0;
-          }
-        }
-
-        @keyframes particleFly {
-          0% {
-            opacity: 1;
-            transform: translate(-50%, -50%);
-          }
-          100% {
-            opacity: 0;
-            transform: translate(
-              calc(-50% + 40px * cos(var(--i) * 45deg)),
-              calc(-50% + 40px * sin(var(--i) * 45deg))
-            );
-          }
+          background: #2a4a8a;
         }
 
         @media (max-width: 768px) {
-          .text-reader-container {
-            padding: 15px;
-          }
-
-          .header-content {
-            flex-direction: column;
-            gap: 15px;
-            text-align: center;
-          }
-
-          .reader-header h1 {
-            text-align: center;
-          }
-
-          .reader-content {
+          .main-content {
             grid-template-columns: 1fr;
-            gap: 20px;
           }
 
-          .text-input-section,
-          .character-list,
-          .learning-stats {
-            padding: 20px;
-          }
-
-          .text-input {
-            margin-bottom: 15px;
-          }
-
-          .text-display {
-            padding: 20px;
-            font-size: 20px;
-            line-height: 1.6;
+          .search-section {
+            flex-direction: column;
+            align-items: stretch;
           }
 
           .character-grid {
             grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
-            gap: 8px;
-          }
-
-          .character-item {
-            font-size: 22px;
-            padding: 10px;
-          }
-
-          .example-word {
-            font-size: 12px;
-            padding: 4px 8px;
-          }
-
-          .search-section {
-            flex-direction: column;
-            gap: 15px;
-            padding: 15px;
-          }
-
-          .search-input {
-            width: 100%;
-          }
-
-          .search-btn, .clear-btn {
-            width: 100%;
-            justify-content: center;
-          }
-
-          .character-display {
-            font-size: 60px;
-          }
-
-          .card-header {
-            flex-direction: column;
-            gap: 15px;
-            text-align: center;
-          }
-
-          .stats-content p {
-            font-size: 14px;
-          }
-
-          .stat-number {
-            font-size: 16px;
-          }
-
-          /* 移动端触摸优化 */
-          .highlighted-char,
-          .character-item,
-          .theme-toggle,
-          .search-btn,
-          .clear-btn {
-            -webkit-tap-highlight-color: rgba(43, 124, 255, 0.3);
-            touch-action: manipulation;
-          }
-
-          .highlighted-char:active,
-          .character-item:active,
-          .theme-toggle:active,
-          .search-btn:active,
-          .clear-btn:active {
-            transform: scale(0.95);
-          }
-        }
-
-        @media (max-width: 480px) {
-          .text-reader-container {
-            padding: 10px;
-          }
-
-          .text-input-section,
-          .character-list,
-          .learning-stats,
-          .search-section {
-            padding: 15px;
-          }
-
-          .text-display {
-            font-size: 18px;
-            padding: 15px;
-          }
-
-          .character-grid {
-            grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-          }
-
-          .character-item {
-            font-size: 20px;
-          }
-
-          .effect-char {
-            font-size: 36px;
           }
         }
       `}</style>

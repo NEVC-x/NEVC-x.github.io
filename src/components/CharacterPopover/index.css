@@ -1,0 +1,196 @@
+.popover-overlay {
+  @apply modal-overlay;
+}
+
+.popover-content {
+  @apply character-card;
+  max-width: 500px;
+}
+
+.popover-header {
+  @apply flex items-center justify-between mb-6 pb-4 border-b border-gray-100;
+}
+
+.dark .popover-header {
+  @apply border-b-gray-700;
+}
+
+.character-large {
+  @apply text-7xl font-bold text-primary;
+}
+
+.dark .character-large {
+  @apply text-primary-light;
+}
+
+.header-actions {
+  @apply flex gap-2;
+}
+
+.action-btn {
+  @apply btn-icon;
+}
+
+.action-btn-collect {
+  @apply hover:bg-yellow-50;
+}
+
+.dark .action-btn-collect {
+  @apply hover:bg-yellow-900/20;
+}
+
+.action-btn-master {
+  @apply hover:bg-green-50;
+}
+
+.dark .action-btn-master {
+  @apply hover:bg-green-900/20;
+}
+
+.action-btn-master.mastered {
+  @apply bg-success text-white border-success hover:bg-success-hover;
+}
+
+.action-btn-close {
+  @apply hover:bg-red-50;
+}
+
+.dark .action-btn-close {
+  @apply hover:bg-red-900/20;
+}
+
+.pronunciation-controls {
+  @apply flex gap-3 mb-6;
+}
+
+.play-audio-btn {
+  @apply flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-primary/10 text-primary rounded-lg font-medium transition-all hover:bg-primary/20;
+}
+
+.dark .play-audio-btn {
+  @apply bg-primary/20 text-primary-light hover:bg-primary/30;
+}
+
+.play-audio-btn.slow {
+  @apply bg-blue-100 text-blue-600 hover:bg-blue-200;
+}
+
+.dark .play-audio-btn.slow {
+  @apply bg-blue-900/30 text-blue-400 hover:bg-blue-900/50;
+}
+
+.character-info-grid {
+  @apply grid grid-cols-2 gap-3 mb-5;
+}
+
+.info-item {
+  @apply flex justify-between items-center p-2.5 bg-gray-50 rounded-lg;
+}
+
+.dark .info-item {
+  @apply bg-gray-700;
+}
+
+.info-label {
+  @apply text-sm text-gray-600 font-medium;
+}
+
+.dark .info-label {
+  @apply text-gray-400;
+}
+
+.info-value {
+  @apply text-base font-semibold text-gray-900;
+}
+
+.dark .info-value {
+  @apply text-gray-100;
+}
+
+.info-value.pinyin {
+  @apply text-primary font-bold text-lg;
+}
+
+.dark .info-value.pinyin {
+  @apply text-primary-light;
+}
+
+.info-value.difficulty {
+  @apply text-warning;
+}
+
+.info-value.category {
+  @apply text-success;
+}
+
+.section {
+  @apply mb-5;
+}
+
+.section-title {
+  @apply text-sm font-bold text-gray-700 mb-2;
+}
+
+.dark .section-title {
+  @apply text-gray-300;
+}
+
+.section-content {
+  @apply text-base text-gray-600 leading-relaxed;
+}
+
+.dark .section-content {
+  @apply text-gray-400;
+}
+
+.strokes-text {
+  @apply text-warning;
+}
+
+.animation-header {
+  @apply flex items-center justify-between mb-3;
+}
+
+.loop-toggle-btn {
+  @apply w-8 h-8 flex items-center justify-center rounded-lg bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors;
+}
+
+.dark .loop-toggle-btn {
+  @apply bg-gray-700 text-gray-400 hover:bg-gray-600;
+}
+
+.rotating {
+  @apply animate-spin;
+  animation-duration: 3s;
+}
+
+.examples-grid {
+  @apply flex flex-wrap gap-2;
+}
+
+.example-word-btn {
+  @apply px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium transition-all hover:bg-gray-200 hover:scale-105;
+}
+
+.dark .example-word-btn {
+  @apply bg-gray-700 text-gray-300 hover:bg-gray-600;
+}
+
+/* 响应式 */
+@media (max-width: 640px) {
+  .popover-content {
+    @apply p-4;
+  }
+
+  .character-large {
+    @apply text-6xl;
+  }
+
+  .character-info-grid {
+    @apply grid-cols-1;
+  }
+
+  .pronunciation-controls {
+    @apply flex-col;
+  }
+}

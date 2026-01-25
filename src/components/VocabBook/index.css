@@ -1,0 +1,352 @@
+.vocab-book {
+  @apply max-w-6xl mx-auto;
+}
+
+/* 头部 */
+.vocab-header {
+  @apply flex items-center justify-between mb-6 pb-4 border-b border-gray-100;
+}
+
+.dark .vocab-header {
+  @apply border-b-gray-700;
+}
+
+.header-left {
+  @apply flex items-center gap-4;
+}
+
+.header-icon {
+  @apply bg-primary/10 p-2.5 rounded-xl;
+}
+
+.header-left h2 {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+.dark .header-left h2 {
+  @apply text-gray-100;
+}
+
+.header-left p {
+  @apply text-sm text-gray-500;
+}
+
+.dark .header-left p {
+  @apply text-gray-400;
+}
+
+.header-actions {
+  @apply flex gap-2;
+}
+
+.action-btn {
+  @apply p-2.5 bg-gray-100 text-gray-700 rounded-lg transition-colors hover:bg-gray-200;
+}
+
+.dark .action-btn {
+  @apply bg-gray-700 text-gray-300 hover:bg-gray-600;
+}
+
+/* 统计卡片 */
+.stats-grid {
+  @apply grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6;
+}
+
+.stat-card {
+  @apply flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100 shadow-sm;
+}
+
+.dark .stat-card {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.stat-icon {
+  @apply p-2 bg-gray-50 rounded-lg;
+}
+
+.dark .stat-icon {
+  @apply bg-gray-700;
+}
+
+.stat-card > div {
+  @apply flex flex-col;
+}
+
+.stat-value {
+  @apply text-2xl font-bold text-gray-900;
+}
+
+.dark .stat-value {
+  @apply text-gray-100;
+}
+
+.stat-label {
+  @apply text-xs text-gray-500;
+}
+
+.dark .stat-label {
+  @apply text-gray-400;
+}
+
+/* 筛选区域 */
+.filter-section {
+  @apply mb-6;
+}
+
+.search-box {
+  @apply flex items-center gap-2 bg-white border-2 border-gray-200 rounded-xl px-4 py-3 mb-4;
+}
+
+.dark .search-box {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.search-icon {
+  @apply text-gray-400;
+}
+
+.search-input {
+  @apply flex-1 bg-transparent border-none outline-none text-base;
+}
+
+.dark .search-input {
+  @apply text-gray-100;
+}
+
+.clear-btn {
+  @apply text-gray-400 hover:text-gray-600 transition-colors;
+}
+
+.dark .clear-btn {
+  @apply hover:text-gray-200;
+}
+
+.filter-buttons {
+  @apply flex items-center gap-4 flex-wrap;
+}
+
+.filter-group {
+  @apply flex items-center gap-2;
+}
+
+.filter-icon {
+  @apply text-gray-500;
+}
+
+.filter-options {
+  @apply flex gap-1.5;
+}
+
+.filter-btn {
+  @apply px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium transition-colors hover:bg-gray-200;
+}
+
+.dark .filter-btn {
+  @apply bg-gray-700 text-gray-300 hover:bg-gray-600;
+}
+
+.filter-btn.active {
+  @apply bg-primary text-white;
+}
+
+.level-filter {
+  @apply ml-auto;
+}
+
+.level-select {
+  @apply px-3 py-2 bg-white border-2 border-gray-200 rounded-lg text-sm font-medium text-gray-700 outline-none cursor-pointer;
+}
+
+.dark .level-select {
+  @apply bg-gray-800 border-gray-700 text-gray-300;
+}
+
+/* 生字列表 */
+.vocab-list {
+  @apply min-h-[300px];
+}
+
+.character-grid {
+  @apply grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4;
+}
+
+.vocab-item {
+  @apply panel cursor-pointer transition-all hover:shadow-md hover:-translate-y-0.5 relative overflow-hidden;
+}
+
+.vocab-item-mastered {
+  @apply ring-2 ring-success ring-offset-2;
+}
+
+.dark .vocab-item-mastered {
+  @apply ring-offset-gray-900;
+}
+
+.vocab-item-learning {
+  @apply ring-2 ring-primary ring-offset-2;
+}
+
+.dark .vocab-item-learning {
+  @apply ring-offset-gray-900;
+}
+
+.vocab-item-header {
+  @apply flex items-start justify-between mb-2;
+}
+
+.vocab-character {
+  @apply text-4xl font-bold text-primary;
+}
+
+.dark .vocab-character {
+  @apply text-primary-light;
+}
+
+.vocab-item-actions {
+  @apply flex gap-1;
+}
+
+.vocab-action-btn {
+  @apply w-7 h-7 flex items-center justify-center rounded-md bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors;
+}
+
+.dark .vocab-action-btn {
+  @apply bg-gray-700 text-gray-400 hover:bg-gray-600;
+}
+
+.vocab-action-btn-remove {
+  @apply hover:bg-red-100 hover:text-red-600;
+}
+
+.dark .vocab-action-btn-remove {
+  @apply hover:bg-red-900/30 hover:text-red-400;
+}
+
+.vocab-item-body {
+  @apply mb-3;
+}
+
+.vocab-pinyin {
+  @apply text-sm font-medium text-gray-600 block mb-1;
+}
+
+.dark .vocab-pinyin {
+  @apply text-gray-400;
+}
+
+.vocab-meaning {
+  @apply text-sm text-gray-700 line-clamp-2;
+}
+
+.dark .vocab-meaning {
+  @apply text-gray-300;
+}
+
+.vocab-item-footer {
+  @apply flex items-center justify-between pt-2 border-t border-gray-100;
+}
+
+.dark .vocab-item-footer {
+  @apply border-t-gray-700;
+}
+
+.status-badge {
+  @apply flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-medium;
+}
+
+.status-mastered {
+  @apply bg-green-100 text-green-700;
+}
+
+.dark .status-mastered {
+  @apply bg-green-900/30 text-green-400;
+}
+
+.status-learning {
+  @apply bg-blue-100 text-blue-700;
+}
+
+.dark .status-learning {
+  @apply bg-blue-900/30 text-blue-400;
+}
+
+.status-unlearned {
+  @apply bg-gray-100 text-gray-700;
+}
+
+.dark .status-unlearned {
+  @apply bg-gray-700 text-gray-400;
+}
+
+.level-badge {
+  @apply px-2 py-0.5 bg-orange-100 text-orange-700 rounded-md text-xs font-bold;
+}
+
+.dark .level-badge {
+  @apply bg-orange-900/30 text-orange-400;
+}
+
+/* 空状态 */
+.empty-state {
+  @apply flex flex-col items-center justify-center py-16 text-center;
+}
+
+.empty-icon {
+  @apply mb-4;
+}
+
+.empty-state h3 {
+  @apply text-xl font-bold text-gray-700 mb-2;
+}
+
+.dark .empty-state h3 {
+  @apply text-gray-300;
+}
+
+.empty-state p {
+  @apply text-gray-500;
+}
+
+.dark .empty-state p {
+  @apply text-gray-400;
+}
+
+/* 底部 */
+.vocab-footer {
+  @apply mt-6 pt-4 border-t border-gray-100 text-center;
+}
+
+.dark .vocab-footer {
+  @apply border-t-gray-700;
+}
+
+.clear-all-btn {
+  @apply flex items-center justify-center gap-2 mx-auto px-6 py-2.5 bg-red-50 text-red-600 rounded-lg font-medium hover:bg-red-100 transition-colors;
+}
+
+.dark .clear-all-btn {
+  @apply bg-red-900/20 text-red-400 hover:bg-red-900/30;
+}
+
+/* 响应式 */
+@media (max-width: 640px) {
+  .vocab-header {
+    @apply flex-col items-start gap-3;
+  }
+
+  .filter-buttons {
+    @apply flex-col items-stretch;
+  }
+
+  .level-filter {
+    @apply ml-0 w-full;
+  }
+
+  .level-select {
+    @apply w-full;
+  }
+
+  .character-grid {
+    @apply grid-cols-1 sm:grid-cols-2;
+  }
+}
