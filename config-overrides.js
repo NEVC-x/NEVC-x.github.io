@@ -1,6 +1,7 @@
-const { override } = require('customize-cra');
+const { override, addBabelPlugin } = require('customize-cra');
 
 module.exports = override(
+  addBabelPlugin('styled-jsx/babel'),
   config => {
     // 配置开发服务器
     config.devServer = {

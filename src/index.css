@@ -298,3 +298,208 @@ body.font-size-large {
   opacity: 0.3;
   transition: 0s;
 }
+
+/* =========================
+   精准笔顺动画组件样式
+   ========================= */
+
+.hanzi-stroke-container {
+  @apply bg-white rounded-2xl p-6 shadow-lg flex flex-col items-center gap-4;
+}
+
+.dark .hanzi-stroke-container {
+  @apply bg-gray-800;
+}
+
+.hanzi-stroke-canvas {
+  @apply bg-gray-50 rounded-xl overflow-hidden;
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+}
+
+.dark .hanzi-stroke-canvas {
+  @apply bg-gray-900;
+  background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+}
+
+/* 笔顺进度 */
+.stroke-progress-section {
+  @apply w-full;
+}
+
+.stroke-count {
+  @apply flex items-center justify-between mb-3;
+}
+
+.count-label {
+  @apply text-sm font-medium text-gray-600;
+}
+
+.dark .count-label {
+  @apply text-gray-400;
+}
+
+.count-numbers {
+  @apply text-lg font-bold text-gray-900;
+}
+
+.dark .count-numbers {
+  @apply text-gray-100;
+}
+
+.divider {
+  @apply mx-1 text-gray-400;
+}
+
+.progress-bar-container {
+  @apply flex items-center gap-3;
+}
+
+.progress-bar-bg {
+  @apply flex-1 h-2 bg-gray-200 rounded-full overflow-hidden;
+}
+
+.dark .progress-bar-bg {
+  @apply bg-gray-700;
+}
+
+.progress-bar-fill {
+  @apply h-full bg-gradient-to-r from-primary to-primary-hover rounded-full transition-all duration-500 ease-out;
+}
+
+.progress-percentage {
+  @apply text-sm font-bold text-primary min-w-[50px] text-right;
+}
+
+.dark .progress-percentage {
+  @apply text-primary-light;
+}
+
+/* 笔画控制 */
+.stroke-controls {
+  @apply w-full flex flex-col gap-4;
+}
+
+.control-group {
+  @apply flex items-center justify-center gap-2;
+}
+
+.control-btn {
+  @apply flex items-center gap-2 px-5 py-2.5 bg-gray-100 text-gray-700 rounded-lg font-medium transition-all hover:bg-gray-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.dark .control-btn {
+  @apply bg-gray-700 text-gray-300 hover:bg-gray-600;
+}
+
+.control-btn.playing {
+  @apply bg-primary text-white;
+}
+
+.dark .control-btn.playing {
+  @apply bg-primary text-white;
+}
+
+.btn-icon {
+  @apply text-lg;
+}
+
+.btn-text {
+  @apply text-sm;
+}
+
+.loop-btn.active {
+  @apply bg-primary text-white;
+}
+
+.dark .loop-btn.active {
+  @apply bg-primary text-white;
+}
+
+/* 分步控制 */
+.step-controls {
+  @apply flex flex-col items-center gap-3 pt-2;
+}
+
+.step-label {
+  @apply text-sm font-medium text-gray-600;
+}
+
+.dark .step-label {
+  @apply text-gray-400;
+}
+
+.step-buttons {
+  @apply flex flex-wrap gap-1.5 justify-center;
+}
+
+.step-btn {
+  @apply w-9 h-9 flex items-center justify-center rounded-lg bg-white border-2 border-gray-200 text-sm font-semibold text-gray-700 transition-all cursor-pointer;
+}
+
+.dark .step-btn {
+  @apply bg-gray-800 border-gray-600 text-gray-300;
+}
+
+.step-btn:hover:not(:disabled) {
+  @apply border-primary bg-primary/10 text-primary -translate-y-0.5;
+}
+
+.step-btn.completed {
+  @apply bg-green-100 border-green-500 text-green-700;
+}
+
+.dark .step-btn.completed {
+  @apply bg-green-900/30 border-green-600 text-green-400;
+}
+
+.step-btn.current {
+  @apply bg-primary text-white border-primary ring-2 ring-primary ring-offset-2;
+}
+
+.dark .step-btn.current {
+  @apply ring-offset-gray-800;
+}
+
+.step-btn:disabled {
+  @apply opacity-40 cursor-not-allowed hover:transform-none;
+}
+
+/* 提示信息 */
+.stroke-info {
+  @apply flex items-center gap-2 px-4 py-3 bg-blue-50 rounded-lg;
+}
+
+.dark .stroke-info {
+  @apply bg-blue-900/20;
+}
+
+.info-label {
+  @apply text-base;
+}
+
+.info-text {
+  @apply text-sm text-gray-700;
+}
+
+.dark .info-text {
+  @apply text-gray-300;
+}
+
+/* 响应式 */
+@media (max-width: 640px) {
+  .control-group {
+    @apply flex-wrap justify-center;
+  }
+
+  .control-btn {
+    @apply flex-1 justify-center min-w-0;
+  }
+
+  .step-buttons {
+    @apply gap-1;
+  }
+
+  .step-btn {
+    @apply w-7 h-7 text-xs;
+  }
+}

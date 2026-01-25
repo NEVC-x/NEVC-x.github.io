@@ -15,6 +15,7 @@ module.exports = {
         // 扩展配色
         'primary-hover': '#2A9BC9',
         'character-light': '#FFE5E5',
+        'primary-light': '#66C2F0',
         'success': '#4CAF50',
         'warning': '#FF9800',
       },

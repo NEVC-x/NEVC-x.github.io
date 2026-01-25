@@ -127,7 +127,7 @@ export default function TextReaderEnhanced() {
 
   // 引用
   const textInputRef = useRef(null);
-  const audioRef = useRef(null);
+  // const audioRef = useRef(null); // eslint-disable-line no-unused-vars
 
   // 初始化
   useEffect(() => {
@@ -780,7 +780,13 @@ export default function TextReaderEnhanced() {
                 </div>
 
                 <div className="stroke-animation">
-                  <HanziStroke character={selectedChar} />
+                  <HanziStroke char={selectedChar} config={{
+                    strokeColor: "#FF4444",
+                    radicalColor: "#33B5E5",
+                    delayBetweenStrokes: 400,
+                    strokeAnimationDuration: 500,
+                    strokeAnimationSpeed: 1,
+                  }} />
                 </div>
               </>
             )}
