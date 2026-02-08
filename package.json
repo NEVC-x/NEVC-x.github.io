@@ -16,7 +16,10 @@
     "web-vitals": "^5.1.0",
     "xlsx": "^0.18.5"
   },
+  "homepage": "https://NEVC-x.github.io/NEVC-x.github.io/",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "start:external": "set BROWSER=none^& react-scripts start",
     "start:server": "node server.js",
