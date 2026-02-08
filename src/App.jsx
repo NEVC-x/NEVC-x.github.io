@@ -11,7 +11,7 @@ import { CHARACTER_DICTIONARY } from './data/dictionary';
 import './App.css';
 
 // 内部组件：使用 Context
-const AppContent: React.FC = () => {
+const AppContent = () => {
   const {
     currentView,
     selectedCharacter,
@@ -28,7 +28,7 @@ const AppContent: React.FC = () => {
     : null;
 
   // 处理生字点击
-  const handleCharacterClick = (char: string) => {
+  const handleCharacterClick = (char) => {
     setSelectedCharacter(char);
   };
 
@@ -208,7 +208,7 @@ const AppContent: React.FC = () => {
  * App - 主应用组件
  * 包含整个应用的布局和路由逻辑
  */
-const App: React.FC = () => {
+const App = () => {
   return (
     <LearningProvider>
       <AppContent />
