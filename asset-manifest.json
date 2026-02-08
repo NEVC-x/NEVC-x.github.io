@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/NEVC-x.github.io/static/css/main.60412135.css",
+    "main.js": "/NEVC-x.github.io/static/js/main.7244af91.js",
+    "static/js/488.6997e21f.chunk.js": "/NEVC-x.github.io/static/js/488.6997e21f.chunk.js",
+    "index.html": "/NEVC-x.github.io/index.html",
+    "main.60412135.css.map": "/NEVC-x.github.io/static/css/main.60412135.css.map",
+    "main.7244af91.js.map": "/NEVC-x.github.io/static/js/main.7244af91.js.map",
+    "488.6997e21f.chunk.js.map": "/NEVC-x.github.io/static/js/488.6997e21f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.60412135.css",
+    "static/js/main.7244af91.js"
+  ]
+}
