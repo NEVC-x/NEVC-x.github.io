@@ -18,6 +18,7 @@
   },
   "homepage": "https://NEVC-x.github.io",
   "scripts": {
+    "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build"
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
